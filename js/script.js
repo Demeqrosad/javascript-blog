@@ -1,5 +1,60 @@
 'use strict';
 
+const optArticleSelector = '.post',
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles';
+
+function generateTitleLinks(){
+
+  /* remove contents of titleList */
+
+ 	const titleList = document.querySelector(optTitleListSelector);
+ 	console.log('titleList: ', titleList);
+ 	titleList.innerHTML = '';
+ 	console.log('titleList-after: ', titleList);
+
+  /* for each article */
+
+	
+	const articles = document.querySelectorAll(optArticleSelector);
+	for(let article of articles)
+	{
+
+	/* get the article id */
+
+		const articleID = article.getAttribute('id');
+		console.log('articleID: ', articleID);
+
+	/* find the title element */
+
+		const titleElement = article.querySelector(optTitleSelector);
+		console.log('titleElement: ', titleElement);
+
+	/* get the title from the title element */
+
+		const title = titleElement.innerHTML;
+		console.log('title: ', title);
+
+	/* create HTML of the link */
+
+		const titleLink = '<li><a href=\"#' + articleID + '\"><span>' + 
+		title + '</span></a></li>';
+		console.log('titleLink: ', titleLink);
+
+    /* insert link into titleList */
+
+    	titleList.insertAdjacentHTML('beforeend', titleLink);
+    	console.log('titleList: ', titleList.innerHTML);
+    }
+
+    const links = document.querySelectorAll('.titles a');
+	for(let link of links)
+	{
+  		link.addEventListener('click', titleClickHandler);
+	}
+}
+
+
 function titleClickHandler(event)
 {
 	event.preventDefault();
@@ -37,15 +92,12 @@ function titleClickHandler(event)
   /* find the correct article using the selector (value of 'href' attribute) */
 
   	const targetArticle = document.querySelector(targetArticleHref);
-  	console.log("targetArticle: ", targetArticle);
+  	console.log('targetArticle: ', targetArticle);
 
   /* add class 'active' to the correct article */
 
   	targetArticle.classList.add('active');
 }
 
-const links = document.querySelectorAll('.titles a');
+generateTitleLinks();
 
-for(let link of links){
-  link.addEventListener('click', titleClickHandler);
-}
