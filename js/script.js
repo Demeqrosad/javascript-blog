@@ -62,7 +62,7 @@ function titleClickHandler(event)
 	console.log('Link was clicked!');
 	console.log(event);
 
-  /* [DONE] remove class 'active' from all article links  */
+  /* remove class 'active' from all article links  */
 
 	const activeLinks = document.querySelectorAll('.titles a.active');
 	for(let activeLink of activeLinks)
@@ -70,13 +70,13 @@ function titleClickHandler(event)
 		activeLink.classList.remove('active');
 	}
 
-  /* [DONE] add class 'active' to the clicked link */
+  /* add class 'active' to the clicked link */
 
   	console.log('clickedElement:', clickedElement);
   	console.log('clickedElement (with plus): ' + clickedElement);
   	clickedElement.classList.add('active');
 
-  /* [DONE] remove class 'active' from all articles */
+  /* remove class 'active' from all articles */
 
   	const activeArticles = document.querySelectorAll('article.active');
 	for(let activeArticle of activeArticles)
