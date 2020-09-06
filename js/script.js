@@ -320,7 +320,7 @@ function addClickListenersToTags()
 
 addClickListenersToTags();
 
-function generateAuthor()
+function generateAuthors()
 {
   /* create a new variable allAuthors with an empty object: */
 
@@ -387,7 +387,7 @@ function generateAuthor()
   authorList.innerHTML = allAuthorsHTML;
 }
 
-generateAuthor();
+generateAuthors();
 
 function addClickListenersToAuthors()
 {
